@@ -8,7 +8,6 @@ const DOB = "17091999";
 const EMAIL = "john@xyz.com";
 const ROLL = "ABCD123";
 
-// Function to alternate caps in reverse string
 function alternatingCaps(str) {
   let res = "";
   let upper = true;
@@ -32,7 +31,7 @@ app.post("/bfhl", (req, res) => {
 
     data.forEach((item) => {
       if (/^-?\d+$/.test(item)) {
-        // numeric string
+        
         let num = parseInt(item, 10);
         total_sum += num;
         if (num % 2 === 0) {
@@ -41,16 +40,16 @@ app.post("/bfhl", (req, res) => {
           odd_numbers.push(item);
         }
       } else if (/^[a-zA-Z]+$/.test(item)) {
-        // alphabetic string
+        
         alphabets.push(item.toUpperCase());
         concat_alpha.push(item);
       } else {
-        // special character(s)
+        
         special_characters.push(item);
       }
     });
 
-    // Build concat string (reverse + alternating caps)
+    
     let concatStr = concat_alpha.reverse().join("");
     concatStr = alternatingCaps(concatStr);
 
@@ -71,7 +70,7 @@ app.post("/bfhl", (req, res) => {
   }
 });
 
-// Default GET route
+
 app.get("/", (req, res) => {
   res.send("API is running Use POST /bfhl");
 });
